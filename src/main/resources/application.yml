@@ -1,0 +1,21 @@
+server:
+  port: 8111
+
+spring:
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    url: jdbc:postgresql://localhost:5432/ingress_db
+    username: postgres
+    password: mysecretpassword
+  jpa:
+    properties:
+      hibernate:
+        temp:
+          use_jdbc_metadata_defaults: false
+    database-platform: org.hibernate.dialect.PostgreSQL10Dialect
+  liquibase:
+    change-log: classpath:liquibase/changelog-master.yml
+
+client:
+  ms-country:
+    endpoint: http://localhost:8088

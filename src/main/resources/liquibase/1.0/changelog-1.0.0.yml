@@ -1,0 +1,27 @@
+databaseChangeLog:
+  - changeSet:
+      id: Create payments table
+      author: Ilkin Aliyev
+      changes:
+        - createTable:
+            tableName: payments
+            columns:
+              - column:
+                  name: id
+                  type: bigint
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: amount
+                  type: numeric(16,2)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: description
+                  type: text
+                  constraints:
+                    nullable: false
+
+            remarks: Table to store information about payments
